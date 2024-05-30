@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess random number</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Guess Game</title>
+  <style>
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f4f8;
+  font-family: 'Arial', sans-serif;
+}
+
+.refresh-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.refresh-button {
+  background-color: #e44340;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.refresh-button:hover {
+  background-color: #ffb6c1;
+  transform: scale(1.1);
+}
+
+.refresh-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+}
+
+  </style>
 </head>
 <body>
-    <script src="/games/guess_game/app.js"></script>
+  <div class="refresh-container">
+    <button class="refresh-button" onclick="refreshPage()">
+      <svg class="refresh-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"></polyline>
+        <polyline points="1 20 1 14 7 14"></polyline>
+        <path d="M3.51 9a9 9 0 0 1 14.36-3.36L23 10M1 14l5.64 5.64A9 9 0 0 0 20.49 15"></path>
+      </svg>
+    </button>
+  </div>
+  <script>
+ 
+  </script>
+  <script src="app.js"></script>
 </body>
 </html>
