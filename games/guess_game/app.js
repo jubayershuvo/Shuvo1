@@ -66,6 +66,10 @@ function guessTheNumber(difficulty) {
   let difficulty = prompt('Choose level ( 1, 2, or 3 ) = (easy, medium, hard)').toLowerCase();
   
   guessTheNumber(difficulty);
+      function refreshPage() {
+    location.reload();
+  }
+  refreshPage();
 }
   
   // console.log(difficulty);
