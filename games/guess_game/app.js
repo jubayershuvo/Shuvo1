@@ -1,3 +1,4 @@
+function start(){
 // Guess The Number of Function
 function guessTheNumber(difficulty) {
     let randomNumber;
@@ -49,9 +50,9 @@ function guessTheNumber(difficulty) {
         );
         break;
       } else if (guess < randomNumber) {
-        console.log('Too Low. Try Again');
+        alert(`Too Low. Try Again`);
       } else {
-        console.log('Too High. Try Again');
+        alert(`Too High. Try Again`);
       }
   
       // console.log(guess);
@@ -62,13 +63,10 @@ function guessTheNumber(difficulty) {
   }
   
   // Get user input difficulty
-  let difficulty = prompt('Choose level (1.easy, 2.medium, 3.hard)').toLowerCase();
+  let difficulty = prompt('Choose level ( 1, 2, or 3 ) = (easy, medium, hard)').toLowerCase();
   
   guessTheNumber(difficulty);
+}
   
   // console.log(difficulty);
-
-// reload
-   function refreshPage() {
-  location.reload();
-}
+  
