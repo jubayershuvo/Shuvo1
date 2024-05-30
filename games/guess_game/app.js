@@ -67,3 +67,8 @@ function guessTheNumber(difficulty) {
   guessTheNumber(difficulty);
   
   // console.log(difficulty);
+
+// reload
+   function refreshPage() {
+  location.reload();
+}
