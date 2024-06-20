@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>popup login</title> 
+   <link rel="stylesheet" href="popup.css">  
+</head>
+<body>
+    <div class="btn">
+        <button class="start">Open popup</button>
+    </div>
+   <div class="popup">
+       <div class="contentBox">
+           <div class="close"></div>
+           <div class="main">
+               <div class="top">
+                   <h2>Welcome Back!</h2>
+                   <p>To get started, login your account.</p>
+               </div>
+               <div class="pc">
+               <div class="form">
+                   <input type="email" name="email" id="" placeholder="Enter your Email.">
+                   <div class="password-container">
+                    <input type="password" id="password" placeholder="Enter your password">
+                    <span id="toggle-password" class="eye-icon">&#128065;</span> <!-- This is a Unicode eye icon -->
+                </div>                   
+             <div class="forget"><a href="forget.html">Forget password.</a></div>
+                   <button class="submit" type="submit">Login</button>
+                   <p>Haven't an account <a href="singup.html">Sing In</a>.</p>
+               </div>
+               <hr>
+               <div class="bottom">
+                   <p>Or continue with</p>
+                   <button class="google-signup-btn social-btn">
+                       <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google logo">
+                       Sign In with Google
+                   </button>
+                   <button class="facebook-btn social-btn">
+                       <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
+                       Sign In with Facebook
+                   </button>
+               </div>
+           </div>
+           </div>
+       </div>
+   </div>
+ <script>
+       const login = document.querySelector('.start');
+       const popup = document.querySelector('.popup');
+       const close = document.querySelector('.close');
+       close.addEventListener('click', () => {
+           popup.style.display = "none";
+           home.style.display = "";
+           home.style.opacity = "100%";
+       })
+       login.addEventListener('click', () => {
+           popup.style.display = "block";
+           home.style.opacity = "50%";
+       })
+   </script>
+   <script>
+    document.getElementById('toggle-password').addEventListener('click', function () {
+    const passwordField = document.getElementById('password');
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+
+    // Toggle the eye icon (you can customize it as per your preference)
+    this.textContent = type === 'password' ? '\u{1F441}' : '\u{1F441}'; // Changing the Unicode icon for demo purposes
+});
+   </script>
+</body>
+</html>
