@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <!--home page-->
+    <div class="home">
+    <button class="login_popup">JOIN US</button>
+    </div>
+    <!--popup pages-->
+    <div class="popup">
+        <div class="close"></div>
+        <div class="change_btn">
+            <button class="login_btn underline">LOGIN</button>
+            <button class="register_btn">REGISTER</button>
+        </div>
+        <div class="popup_login">
+            <form action="">
+                <div class="form">
+                    <input required type="email" name="email" id="" placeholder="Enter your Email.">
+                    <div class="password-container">
+                     <input required type="password" id="password" placeholder="Enter your password">
+                     <span id="toggle-password" class="eye-icon">&#128065;</span> <!-- This is a Unicode eye icon -->
+                 </div>                   
+              <div class="forget"><a href="forget.html">Forget password.</a></div>
+                    <button class="submit" type="submit">Login</button>
+                </div>
+                <hr>
+                <div class="bottom">
+                    <p>Or continue with</p>
+                    <button class="google-signup-btn social-btn">
+                        <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google logo">
+                        Sign In with Google
+                    </button>
+                    <button class="facebook-btn social-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
+                        Sign In with Facebook
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="popup_singup">
+            <form action="">
+                <div class="form form1">
+                    <input required type="text" name="fullName" id="" placeholder="Enter your Full_Name.">
+                    <input required type="email" name="email" id="" placeholder="Enter your Email.">
+                    <div class="spassword-container">
+                     <input required type="password" id="spassword" placeholder="Enter your password">
+                     <span id="toggle-spassword" class="eye-icon">&#128065;</span> <!-- This is a Unicode eye icon -->
+                 </div>                   
+                    <div class="cpassword-container">
+                     <input required type="password" id="cpassword" placeholder="Confirme your password">
+                     <span id="toggle-cpassword" class="eye-icon">&#128065;</span> <!-- This is a Unicode eye icon -->
+                 </div>                   
+                    <button class="submit submit1" type="submit">Sing Up</button>
+                </div>
+                <hr>
+                <div class="bottom">
+                    <p>Or continue with</p>
+                    <button class="google-signup-btn social-btn">
+                        <img src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" alt="Google logo">
+                        Sign In with Google
+                    </button>
+                    <button class="facebook-btn social-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
+                        Sign In with Facebook
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
