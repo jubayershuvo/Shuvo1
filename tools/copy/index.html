@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy your text</title>
+    <style>
+        body{
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+    width: 100%;
+}
+.main{
+    display: block;
+    width: 320px;
+    height: 520px;
+    margin: 100px auto;
+    text-align: center;
+    box-shadow: 1px 1px 5px 0px black;
+    border-radius: 20px;
+}
+.main input{
+    width: 90%;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background-color: antiquewhite;
+}
+#copy{
+    height: 40px;
+    width: 170px;
+    border: none;
+    margin: 10px 0;
+    font-size: 16px;
+    background-color: black;
+    color: #fff;
+    border-radius: 10px;
+}
+#btn{
+    display: inline-block;
+    height: 30px;
+    width: 30%;
+    border: none;
+    margin: 10px 0;
+    font-size: 16px;
+    background-color: black;
+    color: #fff;
+    border-radius: 10px;
+}
+#btn:hover{
+    color: black;
+    background-color: rgb(219, 82, 47);
+    cursor: pointer;
+}
+textarea{
+    width: 90%;
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#count{
+    width: 60%;
+}
+    </style>
+</head>
+<body>
+    <from action="" class="main">
+    <input required placeholder="Input Text" type="text" id="input">
+    <input required placeholder="Count" type="number" id="count">
+    <button onclick="cng();" type="submit" id="btn">GO</button><br>
+
+    <textarea rows="17" disabled id="myInput"></textarea>
+    <button id="copy" onclick="myFunction()">Copy text</button>
+    </from>
+    <script>
+        const open = document.getElementById('btn');
+        const input = document.getElementById("input");
+        const p = document.getElementById("p");
+        const copyText = document.getElementById("myInput");
+        const copy = document.getElementById("copy");
+        
+        
+        function cng(){
+          copy.innerText = "Copy text";
+        }
+        open.addEventListener('click', () => {
+            let count = document.getElementById("count");
+            let countV = count.value;
+            let text = "";
+            for (let i = 1; i <= countV; i++) {
+                const inputV = input.value;
+                text += `${i}. ${inputV}
+        `;
+              }
+              copyText.value = text;
+              
+            })
+        
+        
+        function myFunction() {
+          
+            // Select the text field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+          
+             // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value);
+          
+            var copy = document.getElementById("copy");
+            copy.innerText = "Coped";
+          }</script>
+</body>
+</html>
