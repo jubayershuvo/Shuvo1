@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copy your text</title>
     <style>
-        body{
+body{
     margin: 0;
     padding: 0;
-    height: 80vh;
+    height: 90vh;
     width: 100%;
 }
 .main{
     display: block;
     width: 320px;
-    height: 530px;
+    height: 600px;
     margin: 100px auto;
     text-align: center;
     box-shadow: 1px 1px 5px 0px black;
@@ -69,7 +69,30 @@ textarea{
     overflow-x: hidden;
 }
 #count{
-    width: 60%;
+    width: 90%;
+}
+#select{
+    display: inline;
+    height: 20px;
+    width: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+p{
+    display: inline;
+    height: 20px;
+    width: 30px;
+    margin-right: 10px;
+}
+h2{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+    font-size: 20px;
+}
+#redio{
+    margin: 10px 0;
 }
     </style>
 </head>
@@ -83,41 +106,65 @@ textarea{
     <button id="copy" onclick="myFunction()">Copy text</button>
     </from>
     <script>
-        const open = document.getElementById('btn');
-        const input = document.getElementById("input");
-        const p = document.getElementById("p");
+function myFunction() {
+  const copyText = document.getElementById("myInput");
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  var copy = document.getElementById("copy");
+  copy.innerText = "Coped";
+}
+const copy = document.getElementById("copy");
+function cng(){
+    copy.innerText = "Copy text";
+  }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const open = document.getElementById('btn');
+      const input = document.getElementById("input");
+      
+      
+      
+      let count = document.getElementById("count");
+      
+      open.addEventListener('click', function() {
+        // Get all radio buttons with the name 'gender'
+        const radios = document.getElementsByName('select');
         const copyText = document.getElementById("myInput");
-        const copy = document.getElementById("copy");
         
-        
-        function cng(){
-          copy.innerText = "Copy text";
-        }
-        open.addEventListener('click', () => {
-            let count = document.getElementById("count");
+        for (const radio of radios) {
+          if (radio.checked) {
+            let selectedValue;
+            selectedValue = radio.value;
             let countV = count.value;
             let text = "";
             for (let i = 1; i <= countV; i++) {
-                const inputV = input.value;
+              const inputV = input.value;
+              const select = selectedValue;
+              if(select === "yes"){
                 text += `${i}. ${inputV}
 `;
+                copyText.value = text;
+              }else if(select === "no"){
+                text += `${inputV}
+`;
+              }else{
+                text += 'Fill the all option.';
               }
-              copyText.value = text;
-              
-            })
+            }
+            copyText.value = text;
+            
+            
+          }
+        }
         
         
-        function myFunction() {
-          
-            // Select the text field
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
-          
-             // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText.value);
-          
-            var copy = document.getElementById("copy");
-            copy.innerText = "Coped";
-          }</script>
+      });
+    });
+    </script>
 </body>
 </html>
