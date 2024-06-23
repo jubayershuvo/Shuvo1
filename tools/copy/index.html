@@ -111,65 +111,52 @@ h2{
     <button id="copy" onclick="myFunction()">Copy text</button>
     </from>
     <script>
-function myFunction() {
-  const copyText = document.getElementById("myInput");
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
+const btn = document.getElementById('btn');
+btn.addEventListener('click', function(){
 
-   // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
+    const radios = document.getElementsByName('select');
+    for (const radio of radios) {
+        if (radio.checked) {
+            var selectedValue;
+            selectedValue = radio.value;
+            if(selectedValue == "yes"){
+                selectedValue = true;
+            }else if (selectedValue == "no"){
+                selectedValue = false;
+            }
+        }
+    }
+    var selected = selectedValue;
+    var input = document.getElementById('input');
+    var count = document.getElementById('count');
+    const copyText = document.getElementById("myInput");
+    var text = "";
+        input = input.value;
+        count = count.value;
+        for (var i=1; i <= count; i++){
+            if(selected == true){
+                text +=  `${i}. ${input}
+`;
+            }else{
+                text +=  `${i}. ${input}
+`;
 
-  var copy = document.getElementById("copy");
-  copy.innerText = "Coped";
-}
-const copy = document.getElementById("copy");
+            }
+
+    }
+    copyText.value = text;
+});
 function cng(){
     copy.innerText = "Copy text";
+}
+function myFunction() {
+    const copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 9999999999);
+    navigator.clipboard.writeText(copyText.value); 
+    var copy = document.getElementById("copy");
+    copy.innerText = "Coped";
   }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const open = document.getElementById('btn');
-      const input = document.getElementById("input");
-      
-      
-      
-      let count = document.getElementById("count");
-      
-      open.addEventListener('click', function() {
-        // Get all radio buttons with the name 'gender'
-        const radios = document.getElementsByName('select');
-        const copyText = document.getElementById("myInput");
-        
-        for (const radio of radios) {
-          if (radio.checked) {
-            let selectedValue;
-            selectedValue = radio.value;
-            let countV = count.value;
-            let text = "";
-            for (let i = 1; i <= countV; i++) {
-              const inputV = input.value;
-              const select = selectedValue;
-              if(select === "yes"){
-                text += `${i}. ${inputV}
-`;
-                copyText.value = text;
-              }else if(select === "no"){
-                text += `${inputV}
-`;
-              }else{
-                text += 'Fill the all option.';
-              }
-            }
-            copyText.value = text;
-            
-            
-          }
-        }
-        
-        
-      });
-    });
     </script>
 </body>
 </html>
