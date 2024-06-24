@@ -8,7 +8,7 @@
 body{
     margin: 0;
     padding: 0;
-    height: 80vh;
+    height: 90vh;
     width: 100%;
 }
 .main{
@@ -110,19 +110,21 @@ h4{
 .popup h1{
     font-family: sans-serif;
     margin-top: 100px;
+    font-size: 20px;
     color: rgb(192, 112, 112);
 }
 .close{
-    height: 40px;
-    width: 110px;
+    height: 35px;
+    width: 100px;
     font-size: 18px;
+    margin-top: 20px;
     border: none;
     background-color: rgb(175, 104, 104);
     border-radius: 50px;
     font-weight: bold;
     cursor: pointer;
 }
-        @media 
+@media 
 (max-width:450px) {
     .main{
         display: block;
@@ -140,7 +142,7 @@ h4{
     <div class="op">
     <from action="" class="main">
     <input required placeholder="Input Text" type="text" id="input">
-    <input required placeholder="Count" type="number" id="count">
+    <input style="padding-left: 12px;" required placeholder="Set count" type="number" id="count">
     <div id="redio">
         <h4>Show line numbers:</h4>
         <input checked type="radio" value="yes" name="select" id="select"><p style="margin-right: 7px;">Yes</p>
@@ -153,7 +155,7 @@ h4{
     </from>
 </div>
     <div class="popup">
-        <h1>Please fill all inputs.</h1>
+        <h1 class="msg"></h1>
         <button class="close">OK</button>
     </div>
     </div>
@@ -164,11 +166,20 @@ btn.addEventListener('click', function(){
     input = input.value;
     var count = document.getElementById('count');
     count = count.value;
-    if(input=="" || count == ""){
+    if(input==""){
         const popup = document.querySelector('.popup');
+        const msg = document.querySelector('.msg');
         const op = document.querySelector('.op');
         popup.style.display = "block";
         op.style.opacity = "20%";
+        msg.innerText = "Input Text can't be empty.";
+    }else if(count == ""){
+        const popup = document.querySelector('.popup');
+        const msg = document.querySelector('.msg');
+        const op = document.querySelector('.op');
+        popup.style.display = "block";
+        op.style.opacity = "20%";
+        msg.innerText = "Please Set count.";
     }else{
 
     const radios = document.getElementsByName('select');
