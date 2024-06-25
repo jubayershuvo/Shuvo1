@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check your age</title>
+    <style>
+      .main{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 370px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 4px rgb(167, 157, 157);
+    border-radius: 10px;
+    text-align: center;
+}
+p{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: rgb(0, 37, 247);
+    font-size: 16px;
+    height: 40px;
+}
+input[type="date"]{
+    height: 40px;
+    display: block;
+    margin: auto;
+    width: 40%;
+    color: wheat;
+    text-align: center;
+    border-radius: 10px;
+    padding-right: 30px;
+    border: none;
+    background-color: rgb(24, 24, 247);
+    font-family: sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none
+}
+input[type="date"]::-webkit-calendar-picker-indicator{
+    font-size: 20px;
+    border-radius: 2px;
+    background-color: aliceblue;
+
+}
+.calculate{
+    height: 40px;
+    width: 30%;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    font-size: larger;
+    font-family: sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.calculate:hover{
+    background-color: green;
+    font-weight: bolder;
+    color: black;
+}
+h2{
+    font-family: sans-serif;
+    font-size: 30px;
+    text-decoration: 5px blue underline;
+}
+@media 
+(max-width:450px) {
+    .main{
+        width: 95%;
+
+    }
+}
+    </style>
+</head>
+<body>
+    <p>&copy;jubayer_shuvo</p>
+    <div class="main">
+        <h2>Age Calculator</h2>
+    <p class="year"></p>
+    <input placeholder="Example: Mar-01-2005" type="date" id="Bdate">
+    <button class="calculate" id="btn">Calculate</button>
+    <script src="script.js"></script>
+</div>
+  <script>
+    const run = document.querySelector('#btn');
+run.addEventListener('click', function(){
+    
+    
+    const dateInput = document.getElementById("Bdate");
+    const presentDate = new Date();
+    const selectedDate = dateInput.value;
+    const birthDay = new Date(selectedDate);
+   var age = presentDate - birthDay;
+   age = age / 31556952000;
+   const years = Math.floor(age);
+   const mon = (age-years)*12;
+   const months = Math.floor(mon);
+   const da = (mon - months) * 30;
+   const days = Math.floor(da);
+   const Pyears = document.querySelector('.year');
+    if(selectedDate == ""){
+        Pyears.innerHTML =`Please select Date.`;
+    }else{
+
+        Pyears.innerHTML =`${years} Years ${months} Months and ${days} Days.`;
+    }
+   
+
+});
+
+
+  </script>
+</body>
+</html>
